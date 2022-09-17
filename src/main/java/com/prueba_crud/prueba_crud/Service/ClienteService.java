@@ -11,18 +11,14 @@ import java.util.Optional;
 
 @Service
 public class ClienteService implements IClienteService {
+
    @Autowired
    private IClienteRepository clienteRepository;
 
 
-   public ClienteService(IClienteRepository clienteRepository) {
-      this.clienteRepository = clienteRepository;
-   }
-
-
-   @Override
+    @Override
    public List<Cliente> findAll() {
-      return null;
+      return clienteRepository.findAll();
    }
 
    @Override
@@ -32,7 +28,7 @@ public class ClienteService implements IClienteService {
 
    @Override
    public Cliente create(Cliente cliente) {
-      return null;
+      return clienteRepository.save(cliente);
    }
 
    @Override

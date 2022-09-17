@@ -5,9 +5,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 
 @Entity
-@Table(name = "clientes")
 public class Cliente {
 
     @Id
@@ -40,6 +40,7 @@ public class Cliente {
     @Email(message = "El email enviado no es un formato válido")
     @Column(nullable = false, length = 150)
     private String email;
+
 
     public Integer getIdCliente() {
         return idCliente;
@@ -89,5 +90,16 @@ public class Cliente {
         this.email = email;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(idCliente, cliente.idCliente);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(idCliente);
+    }
 }
