@@ -26,8 +26,8 @@ public class ClienteController {
     /* Busca un cliente por su id*/
     @GetMapping
     @RequestMapping("/{id}")
-    public ResponseEntity<Cliente> findByid(@PathVariable("id") Integer idCliente) {
-        return clienteService.findById(idCliente)
+    public ResponseEntity<Cliente> findById(@PathVariable("id") Integer idCliente) {
+        return clienteService.findByID(idCliente)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -41,8 +41,8 @@ public class ClienteController {
 
     /* Actualizar un cliente nuevo*/
     @PutMapping
-    public ResponseEntity<Cliente> update(@Valid @RequestBody Cliente cliente) {
-        return clienteService.findById(cliente.getIdCliente())
+    public ResponseEntity<Cliente> update (@Valid @RequestBody Cliente cliente) {
+        return clienteService.findByID(cliente.getIdCliente())
                 .map(c -> ResponseEntity.ok(clienteService.update(cliente)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
 
@@ -51,7 +51,7 @@ public class ClienteController {
     /* Eliminar un cliente*/
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable("id") Integer idCliente) {
-        return clienteService.findById(idCliente)
+        return clienteService.findByID(idCliente)
                 .map(c -> {
                     clienteService.delete(idCliente);
                     return ResponseEntity.ok().build();
