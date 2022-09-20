@@ -1,4 +1,4 @@
-package com.prueba_crud.prueba_crud.model;
+package com.prueba_crud.prueba_crud.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

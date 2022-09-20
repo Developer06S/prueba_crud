@@ -1,7 +1,7 @@
 package com.prueba_crud.prueba_crud.controller;
 
 import com.prueba_crud.prueba_crud.Service.ClienteService;
-import com.prueba_crud.prueba_crud.model.Cliente;
+import com.prueba_crud.prueba_crud.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,6 @@ public class ClienteController {
     @GetMapping
     public ResponseEntity<List<Cliente>> findAll() {
         return ResponseEntity.ok(clienteService.findAll());
-
     }
 
     /* Busca un cliente por su id*/

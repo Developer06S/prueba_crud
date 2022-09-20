@@ -1,6 +1,6 @@
 package com.prueba_crud.prueba_crud.Service;
 
-import com.prueba_crud.prueba_crud.model.Cliente;
+import com.prueba_crud.prueba_crud.entity.Cliente;
 
 import java.util.List;
 import java.util.Optional;
